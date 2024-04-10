@@ -1,4 +1,10 @@
-import { NotionRenderer } from "react-notion-x";
-export default ({ recordMap }:any) => (
-    <NotionRenderer recordMap={recordMap} fullPage={true} darkMode={false} />
+'use client'
+import { NotionRenderer } from "react-notion-x"
+
+const NotionPage = (recordMap:any) => {
+  return (
+    <NotionRenderer recordMap={recordMap} fullPage={true} darkMode={true} />
   )
+}
+
+export default NotionPage
