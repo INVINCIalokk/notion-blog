@@ -14,7 +14,7 @@ async function getData() {
   }
 }
 
-export default async function Page({ recordMap }: { recordMap?: ExtendedRecordMap }) {
+export default async function Page() {
   let data;
   try {
     data = await getData();
