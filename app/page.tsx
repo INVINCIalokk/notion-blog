@@ -1,7 +1,6 @@
 
 
 import { ExtendedRecordMap } from 'notion-types'
-
 import { NotionPage } from '../components/NotionRender'
 import { rootNotionPageId } from '../lib/config'
 import notion from '../lib/notion'
@@ -15,8 +14,21 @@ async function getData() {
   }
 }
 
-export default async function Page({ recordMap }: { recordMap: ExtendedRecordMap }) {
-  const data = await getData()
-  console.log(data)
-  return <NotionPage recordMap={data.props.recordMap} rootPageId={rootNotionPageId} />
+export default async function Page({ recordMap }: { recordMap?: ExtendedRecordMap }) {
+  let data;
+  try {
+    data = await getData();
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return <div>Error loading page</div>;
+  }
+
+  if (!data || !data.props || !data.props.recordMap) {
+    console.error('Invalid data:', data);
+    return <div>Error loading page</div>;
+  }
+
+  return (
+    <div className='bg-black'><NotionPage recordMap={data.props.recordMap} rootPageId={rootNotionPageId} /></div>
+  )
 }

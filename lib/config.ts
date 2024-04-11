@@ -1,4 +1,4 @@
-export const rootNotionPageId = 'UI-and-UX-d2ec8d3db9eb41a798fbe6e916207c53'
+export const rootNotionPageId = 'e0d9e76f43d644e6aac4e6aa4d6f0675'
 
 export const isDev =
   process.env.NODE_ENV === 'development' || !process.env.NODE_ENV

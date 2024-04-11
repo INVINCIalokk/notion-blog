@@ -4,6 +4,8 @@ import Head from 'next/head'
 import { ExtendedRecordMap } from 'notion-types'
 import { getPageTitle } from 'notion-utils'
 import { NotionRenderer } from 'react-notion-x'
+import dynamic from 'next/dynamic'
+
 
 export const NotionPage = ({
   recordMap,
@@ -17,7 +19,17 @@ export const NotionPage = ({
   }
 
   const title = getPageTitle(recordMap)
-  console.log(title, recordMap)
+
+  
+  const Collection = dynamic(() =>
+  import('react-notion-x/build/third-party/collection').then(
+    (m) => m.Collection
+  )
+)
+const Equation = dynamic(() =>
+  import('react-notion-x/build/third-party/equation').then((m) => m.Equation)
+)
+
 
   return (
     <>
@@ -32,6 +44,10 @@ export const NotionPage = ({
         fullPage={true}
         darkMode={true}
         rootPageId={rootPageId}
+        components={{
+          Collection,
+          Equation,
+        }}
       />
     </>
   )
