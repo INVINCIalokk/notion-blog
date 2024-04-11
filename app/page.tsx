@@ -1,19 +1,34 @@
 
-import NotionPage from "@/components/NotionRender";
-import { getNotionPage } from "@/components/notion1";
 
+import { ExtendedRecordMap } from 'notion-types'
+import { NotionPage } from '../components/NotionRender'
+import { rootNotionPageId } from '../lib/config'
+import notion from '../lib/notion'
 
+async function getData() {
+  const recordMap = await notion.getPage(rootNotionPageId)
+  return {
+    props:{
+    recordMap
+  }
+  }
+}
 
+export default async function Page({ recordMap }: { recordMap?: ExtendedRecordMap }) {
+  let data;
+  try {
+    data = await getData();
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return <div>Error loading page</div>;
+  }
 
-export default async function Page(){
-  
-  const recordMap = await getNotionPage('f47bd446a08c48668aece02970dffe0d')
-  console.log(recordMap)
-  return(
-    <>
-      <NotionPage recordMap={recordMap} />
-    </>
-  
+  if (!data || !data.props || !data.props.recordMap) {
+    console.error('Invalid data:', data);
+    return <div>Error loading page</div>;
+  }
+
+  return (
+    <div className='bg-black'><NotionPage recordMap={data.props.recordMap} rootPageId={rootNotionPageId} /></div>
   )
-
 }
