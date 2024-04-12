@@ -1,4 +1,5 @@
 
+import { revalidatePath } from 'next/cache';
 import { NotionPage } from '../components/NotionRender'
 import { rootNotionPageId } from '../lib/config'
 import { getNotionPage } from '@/components/NotionData'
@@ -7,6 +8,7 @@ export default async function Page() {
   let data;
   try {
     data = await getNotionPage(rootNotionPageId);
+    await revalidatePath('/'); 
   } catch (error) {
     console.error('Error fetching data:', error);
     return <div>Error loading page</div>;
