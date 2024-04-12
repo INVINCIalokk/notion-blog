@@ -1,8 +1,5 @@
 'use client'
-import Head from 'next/head'
-
 import { ExtendedRecordMap } from 'notion-types'
-import { getPageTitle } from 'notion-utils'
 import { NotionRenderer } from 'react-notion-x'
 import dynamic from 'next/dynamic'
 
