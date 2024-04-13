@@ -4,6 +4,7 @@ import 'react-notion-x/src/styles.css'
 import "prismjs/themes/prism-tomorrow.css";
 import 'katex/dist/katex.min.css'
 
+export const revalidate = 216000;
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

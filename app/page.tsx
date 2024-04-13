@@ -12,7 +12,7 @@ export default async function Page() {
     console.error('Error fetching data:', error);
     return <div>Error loading page</div>;
   }
-
+  
   if (!data || !data.props || !data.props.recordMap) {
     console.error('Invalid data:', data);
     return <div>Error loading page</div>;
