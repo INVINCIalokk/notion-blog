@@ -8,7 +8,6 @@ export default async function Page() {
   let data;
   try {
     data = await getNotionPage(rootNotionPageId);
-    await revalidatePath('/'); 
   } catch (error) {
     console.error('Error fetching data:', error);
     return <div>Error loading page</div>;
