@@ -1,9 +1,18 @@
-{"name": "Next-13 PWA",
-  "short_name": "PWA",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
-  "display": "standalone",
+{
+  "name": "Notes",
+  "short_name": "Notes",
+  "description": "Next PWA example using next-pwa",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "fullscreen",
   "orientation": "portrait",
+  "id": "/",
   "scope": "/",
-  "start_url": "/"
-}
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon_io/android-chrome-512x512.png",
+      "sizes": "512x512"
+    }]
+  }
+
