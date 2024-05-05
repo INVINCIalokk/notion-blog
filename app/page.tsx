@@ -2,7 +2,7 @@
 import { NotionPage } from '../components/NotionRender'
 import { rootNotionPageId } from '../lib/config'
 import { getNotionPage } from '@/components/NotionData'
-import '../styles/firststyle.css'
+
 
 export default async function Page() {
   let data;

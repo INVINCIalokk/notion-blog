@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import type { Metadata,Viewport } from "next";
+import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import 'react-notion-x/src/styles.css'
 import "prismjs/themes/prism-tomorrow.css";
@@ -9,10 +10,10 @@ import '../styles/firststyle.css'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Alok Choudhary",
-  description: "This is a blog where I provide all the textbook solutions and basic concepts for SSC boards in India. It aims to help students prepare for exams by providing step-by-step explanations and clear solutions. Whether you're looking for basic concepts or detailed solutions to practice questions, this blog is here to help.",
+  title: "Notes",
+  description: "Created by alok",
+  manifest: "/manifest.json",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,7 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="">
+      <head/>
+      <body className={inter.className}>
           {children}
       </body>
     </html>
