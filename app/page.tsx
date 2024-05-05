@@ -2,6 +2,7 @@
 import { NotionPage } from '../components/NotionRender'
 import { rootNotionPageId } from '../lib/config'
 import { getNotionPage } from '@/components/NotionData'
+import '../styles/firststyle.css'
 
 export default async function Page() {
   let data;
@@ -19,7 +20,7 @@ export default async function Page() {
 
   return (
     <div>
-      <NotionPage recordMap={data.props.recordMap} rootPageId={rootNotionPageId} />
+        <NotionPage recordMap={data.props.recordMap} rootPageId={rootNotionPageId} />
     </div>
   )
 }

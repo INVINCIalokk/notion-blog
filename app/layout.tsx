@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import 'react-notion-x/src/styles.css'
 import "prismjs/themes/prism-tomorrow.css";
 import 'katex/dist/katex.min.css'
-import {cn} from '../lib/utils'
+import '../styles/global.css'
+import '../styles/firststyle.css'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{margin: 0}} className={inter.className}>{children}</body>
+      <body className="">
+          {children}
+      </body>
     </html>
   );
 }
